@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative z-30 bg-white w-full py-16 md:py-24 border-t border-black/5">
+    <footer id="contact" className="relative z-30 bg-white w-full py-16 md:py-24 border-t border-[#626262]/10">
       <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-16">
         {/* Footer Top */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
@@ -25,7 +25,7 @@ export default function Footer() {
 
           {/* Site Navigation Links */}
           <div className="md:col-span-3 flex flex-col items-start gap-4">
-            <span className="text-[10px] uppercase tracking-widest text-brand-dark font-medium pb-2 border-b border-black/5 w-full">
+            <span className="text-[10px] uppercase tracking-widest text-brand-dark font-medium pb-2 border-b border-[#626262]/10 w-full">
               Navigation
             </span>
             <div className="flex flex-col gap-2.5 text-xs font-light text-brand-grey">
@@ -39,7 +39,7 @@ export default function Footer() {
 
           {/* Headquarters Info */}
           <div className="md:col-span-3 flex flex-col items-start gap-4">
-            <span className="text-[10px] uppercase tracking-widest text-brand-dark font-medium pb-2 border-b border-black/5 w-full">
+            <span className="text-[10px] uppercase tracking-widest text-brand-dark font-medium pb-2 border-b border-[#626262]/10 w-full">
               Headquarters
             </span>
             <p className="text-xs font-light text-brand-grey leading-relaxed">
@@ -55,7 +55,7 @@ export default function Footer() {
 
           {/* Social / Direct Inquiries */}
           <div className="md:col-span-2 flex flex-col items-start gap-4">
-            <span className="text-[10px] uppercase tracking-widest text-brand-dark font-medium pb-2 border-b border-black/5 w-full">
+            <span className="text-[10px] uppercase tracking-widest text-brand-dark font-medium pb-2 border-b border-[#626262]/10 w-full">
               Contact
             </span>
             <div className="flex flex-col gap-2 text-xs font-light text-brand-grey w-full">

@@ -76,8 +76,8 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`fixed z-50 transition-all duration-500 ${isScrolled
-          ? "top-0 left-0 w-full bg-white/80 backdrop-blur-md py-4 border-b border-black/5 px-6 md:px-[64px]"
+        className={`absolute z-50 transition-all duration-500 ${isScrolled
+          ? "top-0 left-0 w-full bg-white/80 backdrop-blur-md py-4 border-b border-[#626262]/10 px-6 md:px-[64px]"
           : "top-6 md:top-[24px] left-6 md:left-[64px] right-6 md:right-[64px] w-[calc(100%-48px)] md:w-[calc(100%-128px)] bg-transparent pt-0 pb-8"
           }`}
       >
@@ -134,7 +134,7 @@ export default function Navigation() {
             className="fixed inset-0 bg-white z-40 flex flex-col justify-center items-start px-6 md:px-24"
           >
             {/* Subtle architectural background detail */}
-            <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:24px_24px]" />
+            <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#626262_1px,transparent_1px)] [background-size:24px_24px]" />
 
             <div className="max-w-[1200px] w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12 z-10">
               {/* Menu Links */}

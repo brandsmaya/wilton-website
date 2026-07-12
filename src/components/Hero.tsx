@@ -189,9 +189,9 @@ export default function Hero() {
               <a
                 ref={ctaRef}
                 href="#contact"
-                className="px-5 py-2.5 bg-[#4c4c4c] hover:bg-zinc-800 text-white text-xs font-light tracking-wide transition-colors duration-300 flex items-center gap-2 select-none"
+                className="px-6 py-3.5 bg-[#626262] hover:bg-[#4d4d4d] text-white text-[20px] font-light tracking-wide transition-colors duration-300 flex items-center gap-3 select-none"
               >
-                About Us <span className="text-[10px]">↗</span>
+                About Us <img src="/images/arrow-up-right.svg" alt="Arrow Up Right" className="w-[20px] h-[20px] object-contain shrink-0" />
               </a>
             </div>
 
@@ -224,7 +224,7 @@ export default function Hero() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#626262]/25 via-transparent to-transparent pointer-events-none" />
         </div>
       </div>
     </section>
