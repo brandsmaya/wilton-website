@@ -64,10 +64,10 @@ export default function Statistics() {
       <div className="max-w-[1440px] mx-auto w-full">
         {/* Header */}
         <div className="max-w-[600px] mb-16 md:mb-24">
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-brand-grey block mb-6">
+          <span className="body-small text-brand-grey block mb-6">
             Technical Precision
           </span>
-          <h2 className="text-3xl md:text-5xl font-light text-brand-dark leading-tight select-none">
+          <h2 className="main-heading text-brand-dark leading-tight select-none">
             Millimeter precision in luxury carpet manufacturing.
           </h2>
         </div>
@@ -79,14 +79,14 @@ export default function Statistics() {
         >
           {stats.map((stat, index) => (
             <div key={index} className="flex flex-col items-start pr-4">
-              <span className="text-4xl md:text-5xl lg:text-6xl font-extralight text-brand-dark tracking-tight leading-none mb-4 select-none">
+              <span className="sub-heading text-brand-dark mb-4 select-none">
                 {stat.value}
               </span>
               <div className="w-full thin-divider pt-4 mt-2">
-                <h3 className="text-xs uppercase tracking-widest font-medium text-brand-dark mb-2 select-none">
+                <h3 className="body-text text-brand-dark mb-2 select-none">
                   {stat.label}
                 </h3>
-                <p className="text-xs md:text-sm text-brand-grey font-light leading-relaxed select-none">
+                <p className="body-text select-none">
                   {stat.description}
                 </p>
               </div>

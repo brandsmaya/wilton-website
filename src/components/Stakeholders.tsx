@@ -145,7 +145,7 @@ export default function Stakeholders() {
         // ScrollTrigger to bind rotation scrub to page scroll
         ScrollTrigger.create({
           trigger: pinRef.current,
-          start: "-50% top",
+          start: "center center",
           end: () => `+=${(COUNT - 1) * window.innerHeight * 0.65}`,
           scrub: true,
           pin: true,
@@ -218,20 +218,20 @@ export default function Stakeholders() {
       {/* 1. Header Copy Section (Scrolls naturally) */}
       <section
         ref={headerRef}
-        className="relative z-30 pt-48 pb-64 w-full bg-white"
+        className="relative z-30 pt-24 pb-64 w-full bg-white"
       >
         <div className="max-w-[1440px] mx-auto w-full px-6 md:px-16 flex flex-col items-center">
-          <span className="text-[18px] uppercase text-brand-dark block mb-3 select-none text-center font-normal">
+          <span className="sub-heading block mb-3 select-none text-center">
             Why Wilton
           </span>
-          <h2 className="text-[48px] font-light text-brand-dark tracking-tight leading-tight select-none text-center mb-6 max-w-[1200px]">
+          <h2 className="big-heading text-center mb-6 max-w-[1200px]">
             We deliver the dreams of five stakeholders.
           </h2>
           {/* Paragraph offset to the right side of the container */}
           <div className="w-full max-w-[800px] grid grid-cols-1 md:grid-cols-12 gap-4">
             <div className="md:col-span-6" />
             <div className="md:col-span-6">
-              <p className="text-[16px] text-[#626262] leading-relaxed font-light select-none">
+              <p className="body-large select-none">
                 First amongst equals: our Customers &ndash; followed equally by
                 our Team, Shareholders, State and Earth.
               </p>
@@ -284,10 +284,10 @@ export default function Stakeholders() {
 
                       {/* Center block */}
                       <div className="flex flex-col items-center justify-center text-center my-auto">
-                        <span className="block text-6xl xl:text-7xl font-extralight leading-none tracking-tight select-none">
+                        <span className="main-heading select-none">
                           {s.number}
                         </span>
-                        <h3 className="text-lg xl:text-xl font-light tracking-widest uppercase mt-3 select-none">
+                        <h3 className="sub-heading mt-3 select-none">
                           {s.title}
                         </h3>
                       </div>
@@ -295,11 +295,11 @@ export default function Stakeholders() {
                       {/* Bottom Metadata/Caption Block */}
                       <div className="w-full">
                         {s.caption ? (
-                          <p className="text-[10px] text-white/70 font-light leading-relaxed text-center max-w-[240px] mx-auto">
+                          <p className="body-small text-center max-w-[240px] mx-auto">
                             {s.caption}
                           </p>
                         ) : (
-                          <div className="w-full border-t border-white/10 text-[9px] uppercase tracking-wider">
+                          <div className="w-full border-t border-white/10 body-small">
                             <div className="flex justify-between py-1.5 border-b border-white/5">
                               <span className="opacity-60">{s.metaLabel1}</span>
                               <span className="font-medium">{s.metaValue1}</span>
@@ -358,7 +358,7 @@ export default function Stakeholders() {
                       {s.title}
                     </h3>
                     {s.caption && (
-                      <p className="text-[10px] text-white/70 font-light leading-relaxed mt-3 max-w-sm">
+                      <p className="body-text text-white mt-3 max-w-sm">
                         {s.caption}
                       </p>
                     )}

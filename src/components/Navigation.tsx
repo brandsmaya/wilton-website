@@ -4,12 +4,10 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const menuLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Aviation Carpets", href: "#aviation" },
-  { name: "Wool Broadloom", href: "#broadloom" },
-  { name: "Craftsmanship", href: "#craftsmanship" },
-  { name: "Technical Precision", href: "#precision" },
-  { name: "Contact", href: "#contact" },
+  { name: "About Us", href: "#home" },
+  { name: "Products", href: "#home" },
+  { name: "Team", href: "#stakeholders" },
+  { name: "Contact Us", href: "#contact" },
 ];
 
 export default function Navigation() {
@@ -116,7 +114,7 @@ export default function Navigation() {
               />
             </div>
             {/* "MENU" label */}
-            <span className="text-[18px] uppercase tracking-widest text-brand-dark font-light select-none">
+            <span className="body-large text-brand-dark select-none">
               {isOpen ? "Close" : "Menu"}
             </span>
           </button>
@@ -167,27 +165,37 @@ export default function Navigation() {
                 className="flex flex-col gap-6 text-sm font-light text-brand-grey max-w-[280px]"
               >
                 <div className="thin-divider pt-6">
-                  <p className="uppercase tracking-widest text-[10px] text-brand-dark font-medium mb-2">
+                  <p className="body-text text-brand-dark mb-2">
                     Headquarters
                   </p>
-                  <p className="leading-relaxed">
-                    Wilton Weavers Ltd.
+                  <p className="body-large">
+                    Wilton Weavers Pvt Ltd
                     <br />
-                    100 Weaver Way,
+                    Kalavamkodam, Cherthala
                     <br />
-                    Wiltshire, United Kingdom
+                    Alappuzha-688 524,
+                    <br />
+                    Kerala, India
+                    <br />
+                    <span className="block mt-2">Phone: 0478 296 4344</span>
                   </p>
                 </div>
 
                 <div>
-                  <p className="uppercase tracking-widest text-[10px] text-brand-dark font-medium mb-2">
+                  <p className="body-text text-brand-dark mb-2">
                     Inquiries
                   </p>
                   <a
-                    href="mailto:contact@wiltonweavers.com"
-                    className="hover:text-brand-dark transition-colors duration-300"
+                    href="mailto:ceo@wilton.in"
+                    className="block hover:text-brand-dark transition-colors duration-300 body-large"
                   >
-                    contact@wiltonweavers.com
+                    Sales: ceo@wilton.in
+                  </a>
+                  <a
+                    href="mailto:berly@wilton.in"
+                    className="block hover:text-brand-dark transition-colors duration-300 body-large mt-1"
+                  >
+                    Support: berly@wilton.in
                   </a>
                 </div>
               </motion.div>

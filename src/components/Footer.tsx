@@ -1,87 +1,148 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React from "react";
 
 export default function Footer() {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <footer id="contact" className="relative z-30 bg-white w-full py-16 md:py-24 border-t border-[#626262]/10">
-      <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-16">
-        {/* Footer Top */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
-          {/* Logo Brand / Info */}
-          <div className="md:col-span-4 flex flex-col items-start gap-4 pr-0 md:pr-12">
-            <a href="#home" className="flex flex-col select-none group">
-              <span className="text-[24px] md:text-[28px] font-extralight tracking-[0.15em] text-brand-dark leading-none">
-                WILTON
-              </span>
-              <span className="text-[8px] md:text-[9px] font-light tracking-[0.43em] text-brand-grey mt-1 pl-[2px]">
-                WEAVERS
-              </span>
-            </a>
-            <p className="text-xs md:text-sm text-brand-grey font-light leading-relaxed mt-4 max-w-[280px]">
-              Manufacturers of high-end aviation carpets and fine wool broadloom. Combining precise structural engineering with timeless craftsmanship since 1976.
-            </p>
-          </div>
+    <footer
+      id="contact"
+      className="relative z-30 bg-white w-full px-6 pt-20 pb-[120px] sm:pb-[150px] md:px-16 md:pt-28 md:pb-[200px] lg:pb-[220px]"
+    >
+      <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-24">
+        {/* Footer Top: Have any questions? Form */}
+        <div className="grid grid-cols-12 gap-8">
+          {/* Spacer Column for offset layout */}
+          <div className="hidden lg:block lg:col-span-5" />
 
-          {/* Site Navigation Links */}
-          <div className="md:col-span-3 flex flex-col items-start gap-4">
-            <span className="text-[10px] uppercase tracking-widest text-brand-dark font-medium pb-2 border-b border-[#626262]/10 w-full">
-              Navigation
-            </span>
-            <div className="flex flex-col gap-2.5 text-xs font-light text-brand-grey">
-              <a href="#home" className="hover:text-brand-dark transition-colors duration-300">Home</a>
-              <a href="#aviation" className="hover:text-brand-dark transition-colors duration-300">Aviation Division</a>
-              <a href="#broadloom" className="hover:text-brand-dark transition-colors duration-300">Broadloom Division</a>
-              <a href="#craftsmanship" className="hover:text-brand-dark transition-colors duration-300">Craftsmanship</a>
-              <a href="#precision" className="hover:text-brand-dark transition-colors duration-300">Technical Precision</a>
-            </div>
-          </div>
+          {/* Form Column */}
+          <div className="col-span-12 lg:col-span-7 flex flex-col items-start w-full">
+            <h3 className="big-heading text-brand-dark mb-10 select-none">
+              Have any questions?
+            </h3>
 
-          {/* Headquarters Info */}
-          <div className="md:col-span-3 flex flex-col items-start gap-4">
-            <span className="text-[10px] uppercase tracking-widest text-brand-dark font-medium pb-2 border-b border-[#626262]/10 w-full">
-              Headquarters
-            </span>
-            <p className="text-xs font-light text-brand-grey leading-relaxed">
-              Wilton Weavers Ltd.
-              <br />
-              100 Weaver Way,
-              <br />
-              Wiltshire, SN12 8XY
-              <br />
-              United Kingdom
-            </p>
-          </div>
+            <form onSubmit={handleSubmit} className="w-full flex flex-col gap-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                {/* Name Input */}
+                <div className="wilton-form-field">
+                  <label htmlFor="footer-name" className="wilton-form-label">
+                    Name*
+                  </label>
+                  <input
+                    id="footer-name"
+                    type="text"
+                    required
+                    className="wilton-form-input"
+                  />
+                </div>
 
-          {/* Social / Direct Inquiries */}
-          <div className="md:col-span-2 flex flex-col items-start gap-4">
-            <span className="text-[10px] uppercase tracking-widest text-brand-dark font-medium pb-2 border-b border-[#626262]/10 w-full">
-              Contact
-            </span>
-            <div className="flex flex-col gap-2 text-xs font-light text-brand-grey w-full">
-              <a href="mailto:info@wiltonweavers.com" className="hover:text-brand-dark transition-colors duration-300 block truncate">
-                info@wiltonweavers.com
-              </a>
-              <a href="tel:+441225700800" className="hover:text-brand-dark transition-colors duration-300">
-                +44 (0) 1225 700 800
-              </a>
-              <div className="flex gap-4 mt-2">
-                <a href="#" className="hover:text-brand-dark transition-colors duration-300">LinkedIn</a>
-                <a href="#" className="hover:text-brand-dark transition-colors duration-300">Instagram</a>
+                {/* Email Input */}
+                <div className="wilton-form-field">
+                  <label htmlFor="footer-email" className="wilton-form-label">
+                    Email*
+                  </label>
+                  <input
+                    id="footer-email"
+                    type="email"
+                    required
+                    className="wilton-form-input"
+                  />
+                </div>
               </div>
-            </div>
+
+              {/* Message Textarea */}
+              <div className="wilton-form-field">
+                <label htmlFor="footer-message" className="wilton-form-label">
+                  Message
+                </label>
+                <textarea
+                  id="footer-message"
+                  className="wilton-form-textarea"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="wilton-button hover:bg-[#3f3f3f] transition-colors duration-300 self-start select-none cursor-pointer"
+              >
+                Send{" "}
+                <img
+                  src="/images/arrow-up-right.svg"
+                  alt="Arrow Up Right"
+                  className="w-[20px] h-[20px] object-contain shrink-0 brightness-0 invert"
+                />
+              </button>
+            </form>
           </div>
         </div>
 
-        {/* Footer Bottom (Copyright / Legal) */}
-        <div className="w-full thin-divider pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-[10px] text-brand-grey/80 tracking-wider uppercase font-light">
-          <span>&copy; {new Date().getFullYear()} Wilton Weavers Ltd. All rights reserved.</span>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-brand-dark transition-colors duration-300">Privacy Policy</a>
-            <a href="#" className="hover:text-brand-dark transition-colors duration-300">Terms of Service</a>
+        {/* Footer Bottom: Links & Logo */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+          {/* Navigation Column */}
+          <div className="lg:col-span-3 footer-column">
+            <h4 className="footer-title">Navigation</h4>
+            <div className="footer-links-list">
+              <a href="#home" className="footer-link-item">About Us</a>
+              <a href="#home" className="footer-link-item">Products</a>
+              <a href="#stakeholders" className="footer-link-item">Team</a>
+              <a href="#contact" className="footer-link-item">Contact Us</a>
+              <a href="#home" className="footer-link-item">CSR</a>
+            </div>
+          </div>
+
+          {/* Social Column */}
+          <div className="lg:col-span-3 footer-column">
+            <h4 className="footer-title">Social</h4>
+            <div className="footer-links-list">
+              <a href="#" className="footer-link-item">Facebook</a>
+              <a href="#" className="footer-link-item">LinkedIn</a>
+              <a href="#" className="footer-link-item">Instagram</a>
+              <a href="#" className="footer-link-item">YouTube</a>
+            </div>
+          </div>
+
+          {/* Contacts Column */}
+          <div className="lg:col-span-4 footer-column">
+            <h4 className="footer-title">Contacts</h4>
+            <div className="footer-links-list">
+              <span className="footer-text-item">Wilton Weavers Pvt Ltd</span>
+              <span className="footer-text-item">Kalavamkodam, Cherthala</span>
+              <span className="footer-text-item">Alappuzha-688 524,</span>
+              <span className="footer-text-item">Kerala, India</span>
+              <span className="footer-text-item mt-4 block">Phone: 0478 296 4344</span>
+              <span className="footer-text-item">
+                For sales:{" "}
+                <a
+                  href="mailto:ceo@wilton.in"
+                  className="hover:text-brand-dark transition-colors duration-300 font-medium"
+                >
+                  ceo@wilton.in
+                </a>
+              </span>
+              <span className="footer-text-item">
+                For customer support:{" "}
+                <a
+                  href="mailto:berly@wilton.in"
+                  className="hover:text-brand-dark transition-colors duration-300 font-medium"
+                >
+                  berly@wilton.in
+                </a>
+              </span>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Brand Logo - Absolutely positioned in the bottom right corner (outside padding area) */}
+      <img
+        src="/images/wilton-logo.svg"
+        alt="Wilton Weavers Logo"
+        className="absolute bottom-0 right-0 w-[240px] sm:w-[300px] md:w-[450px] lg:w-[540px] h-auto object-contain pointer-events-none select-none z-0"
+      />
     </footer>
   );
 }

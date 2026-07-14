@@ -65,3 +65,154 @@ html.lenis {
   background-color: #626262;
   color: #ffffff;
 }
+
+.main-heading {
+  font-size: 43px;
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -.05em;
+  font-family: var(--font-sans);
+}
+
+.big-heading {
+  font-size: 72px;
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -.05em;
+  font-family: var(--font-sans);
+}
+
+.sub-heading {
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: -.05em;
+  font-family: var(--font-sans);
+}
+
+.body-large {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: var(--font-sans);
+  letter-spacing: -.05em;
+}
+
+
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-sans);
+}
+
+.body-small {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: var(--font-sans);
+}
+
+.wilton-button {
+  background-color: var(--foreground);
+  color: var(--background);
+  font-size: 18px;
+  font-weight: 400;
+  padding: 8px 24px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.wilton-button:hover {
+  background-color: #3f3f3f;
+}
+
+/* Footer & Form CSS Styles */
+.wilton-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.wilton-form-label {
+  font-size: 14px;
+  color: #626262;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.wilton-form-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(98, 98, 98, 0.4);
+  padding: 8px 0;
+  color: #626262;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.wilton-form-input:focus {
+  border-bottom-color: #626262;
+}
+
+.wilton-form-textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(98, 98, 98, 0.4);
+  padding: 8px 0;
+  color: #626262;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  resize: none;
+  min-height: 120px;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.wilton-form-textarea:focus {
+  border-bottom-color: #626262;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #626262;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-link-item {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-link-item:hover {
+  color: #626262;
+}
+
+.footer-text-item {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+  line-height: 1.6;
+}

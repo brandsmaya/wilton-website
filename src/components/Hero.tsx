@@ -47,32 +47,32 @@ export default function Hero() {
         };
       };
 
-      // 1. Initial page load animations
-      const tlLoad = gsap.timeline({ defaults: { ease: "power3.out" } });
+      // 1. Initial page load animations (Awwwards-style slow reveal)
+      const tlLoad = gsap.timeline({ defaults: { ease: "power4.out" } });
 
       tlLoad
         .fromTo(
           logoContainerRef.current,
-          { y: -30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1.0 }
+          { y: 80, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.8 }
         )
         .fromTo(
           textRef.current,
-          { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1.0 },
-          "-=0.6"
+          { y: 100, opacity: 0 },
+          { y: 0, opacity: 1, duration: 2.0 },
+          "-=1.4"
         )
         .fromTo(
           ctaRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8 },
-          "-=0.6"
+          { y: 60, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.6 },
+          "-=1.4"
         )
         .fromTo(
           videoWrapRef.current,
           { autoAlpha: 0 },
-          { autoAlpha: 1, duration: 1.2, ease: "power4.out" },
-          "-=0.9"
+          { autoAlpha: 1, duration: 2.2, ease: "power3.out" },
+          "-=1.8"
         );
       // Note: videoWrapRef's x/y/scale/borderRadius are exclusively owned by
       // the scroll-scrubbed timeline below — animating them here too would
@@ -176,20 +176,19 @@ export default function Hero() {
           {/* Bottom Part: Content Row (Text & CTA aligned with reserved video slot) */}
           <div className="mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch mt-16 pb-0">
             {/* Left Column: Typography & CTA */}
-            <div className="lg:col-span-6 flex flex-col items-start justify-end pr-0 lg:pr-8 pb-12">
+            <div className="lg:col-span-6 flex flex-col items-start justify-end pr-0 lg:pr-8 pb-20">
               <h1
                 ref={textRef}
-                className="text-3xl md:text-[32px] font-light tracking-tight text-brand-dark leading-[1.2] mb-8 select-none"
+                className="main-heading mb-8 select-none"
               >
                 Wilton weavers specialises in the manufacture of aviation carpets &amp;
-                fine wool broadloom. Manufacturers of quality floor coverings, we are
-                an innovator par excellence.
+                fine wool broadloom.
               </h1>
 
               <a
                 ref={ctaRef}
                 href="#contact"
-                className="px-6 py-3.5 bg-[#626262] hover:bg-[#4d4d4d] text-white text-[20px] font-light tracking-wide transition-colors duration-300 flex items-center gap-3 select-none"
+                className="wilton-button transition-colors duration-300 select-none"
               >
                 About Us <img src="/images/arrow-up-right.svg" alt="Arrow Up Right" className="w-[20px] h-[20px] object-contain shrink-0" />
               </a>
