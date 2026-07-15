@@ -39,28 +39,28 @@ const images: SideImage[] = [
     src: "/images/cursor-images/text-area-image-1.jpg",
     alt: "Stacked carpet tiles at the Wilton Weavers workshop",
     side: "left",
-    className: "left-20 top-40 md:top-[4%] w-[23%] md:w-[18%]",
+    className: "order-1 w-full md:left-20 md:top-[4%] md:w-[18%]",
     range: 35,
   },
   {
     src: "/images/cursor-images/text-area-image-2.jpg",
     alt: "Craftsman inspecting a carpet on the loom",
     side: "right",
-    className: "right-60 top-[10%] md:top-[10%] w-[33%] md:w-[18%]",
+    className: "order-2 w-full md:right-60 md:top-[10%] md:w-[18%]",
     range: -27,
   },
   {
     src: "/images/cursor-images/text-area-image-3.jpg",
     alt: "Wool fabric swatches in embroidery hoops",
     side: "left",
-    className: "left-[4%] md:left-[12%] bottom-0 md:bottom-[6%] w-[21%] md:w-[18%]",
+    className: "order-4 w-full md:left-[12%] md:bottom-[6%] md:w-[18%]",
     range: -30,
   },
   {
     src: "/images/cursor-images/text-area-image-4.jpg",
     alt: "Close-up of a chevron-patterned carpet weave",
     side: "right",
-    className: "right-[2%] bottom-[4%] md:bottom-[10%] w-[22%] md:w-[13%]",
+    className: "order-5 w-full md:right-[2%] md:bottom-[10%] md:w-[13%]",
     range: 32,
   },
 ];
@@ -180,13 +180,13 @@ export default function TextParallax() {
     >
       <div
         ref={stageRef}
-        className="relative max-w-[1600px] mx-auto w-full px-6 md:px-16 min-h-[420px] md:min-h-[620px] flex items-center justify-center"
+        className="relative max-w-[1600px] mx-auto w-full px-6 md:px-16 grid grid-cols-2 gap-6 md:flex md:items-center md:justify-center min-h-0 md:min-h-[620px]"
       >
         {/* Images: scattered on both sides, parallaxing independently */}
         {images.map((img, i) => (
           <div
             key={img.src}
-            className={`absolute aspect-[4/3] overflow-hidden rounded-[16px] z-0 ${img.className}`}
+            className={`relative md:absolute aspect-[4/3] overflow-hidden rounded-[16px] z-0 ${img.className}`}
           >
             <div
               ref={(el) => {
@@ -200,13 +200,14 @@ export default function TextParallax() {
                 fill
                 sizes="(max-width: 768px) 46vw, 25vw"
                 className="object-cover"
-              />
+              >
+              </Image>
             </div>
           </div>
         ))}
 
         {/* Text effect: huge statement heading, word by word colour reveal */}
-        <h2 className="relative z-10 text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] tracking-tight text-center max-w-[1140px] select-none mix-blend-difference text-white">
+        <h2 className="relative z-10 order-3 col-span-2 py-8 md:py-0 text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] tracking-tight text-center max-w-[1140px] select-none mix-blend-difference text-white">
           {words.map((word, i) => (
             <span key={i} className="inline-block mr-[0.22em] last:mr-0">
               {word.accent ? (

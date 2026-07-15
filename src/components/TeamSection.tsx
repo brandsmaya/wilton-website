@@ -22,49 +22,49 @@ const teamImages = [
   {
     src: "/images/team-image-1.jpg",
     alt: "Team Image 1",
-    className: "hidden md:block absolute left-[3%] md:left-[8%] top-[5%] w-[16%] md:w-[13%] aspect-[3/4]",
+    className: "absolute left-[4%] top-[4%] w-[24%] md:left-[8%] md:top-[5%] md:w-[13%] aspect-[3/4]",
     rotate: -8,
   },
   {
     src: "/images/team-image-2.jpg",
     alt: "Team Image 2",
-    className: "hidden md:block absolute right-[3%] md:right-[8%] top-[8%] w-[15%] md:w-[13%] aspect-[4/3]",
+    className: "absolute right-[4%] top-[6%] w-[22%] md:right-[8%] md:top-[8%] md:w-[13%] aspect-[4/3]",
     rotate: 5,
   },
   {
     src: "/images/team-image-3.jpg",
     alt: "Team Image 3",
-    className: "hidden md:block absolute left-[1%] md:left-[5%] top-[30%] w-[18%] md:w-[14%] aspect-square",
+    className: "absolute left-[30%] top-[3%] w-[20%] md:left-[5%] md:top-[30%] md:w-[14%] aspect-square",
     rotate: 6,
   },
   {
     src: "/images/team-image-4.jpg",
     alt: "Team Image 4",
-    className: "hidden md:block absolute right-[1%] md:right-[4%] top-[30%] w-[17%] md:w-[12%] aspect-[3/4]",
+    className: "absolute right-[28%] top-[5%] w-[20%] md:right-[4%] md:top-[30%] md:w-[12%] aspect-[3/4]",
     rotate: -7,
   },
   {
     src: "/images/team-image-5.jpg",
     alt: "Team Image 5",
-    className: "hidden md:block absolute left-[4%] md:left-[9%] top-[55%] w-[15%] md:w-[12%] aspect-[4/3]",
+    className: "absolute left-[4%] bottom-[5%] w-[22%] md:left-[9%] md:top-[55%] md:bottom-auto md:w-[12%] aspect-[4/3]",
     rotate: -5,
   },
   {
     src: "/images/team-image-6.jpg",
     alt: "Team Image 6",
-    className: "hidden md:block absolute right-[5%] md:right-[9%] top-[54%] w-[16%] md:w-[13%] aspect-[4/3]",
+    className: "absolute right-[4%] bottom-[7%] w-[22%] md:right-[9%] md:top-[54%] md:bottom-auto md:w-[13%] aspect-[4/3]",
     rotate: 8,
   },
   {
     src: "/images/team-image-7.jpg",
     alt: "Team Image 7",
-    className: "hidden md:block absolute left-[2%] md:left-[6%] top-[75%] w-[14%] md:w-[11%] aspect-square",
+    className: "absolute left-[28%] bottom-[4%] w-[20%] md:left-[6%] md:top-[75%] md:bottom-auto md:w-[11%] aspect-square",
     rotate: 4,
   },
   {
     src: "/images/team-image-8.jpg",
     alt: "Team Image 8",
-    className: "hidden md:block absolute right-[2%] md:right-[6%] top-[76%] w-[14%] md:w-[11%] aspect-square",
+    className: "absolute right-[28%] bottom-[6%] w-[20%] md:right-[6%] md:top-[76%] md:bottom-auto md:w-[11%] aspect-square",
     rotate: -4,
   },
 ];
@@ -121,7 +121,7 @@ export default function TeamSection() {
           {
             scale: 45,
             opacity: 0,
-            duration: 1.5,
+            duration: 3.0,
             ease: "power2.inOut",
           },
           "-=0.6"
