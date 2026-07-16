@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="relative z-30 bg-white w-full px-6 pt-20 pb-[120px] sm:pb-[150px] md:px-16 md:pt-28 md:pb-[200px] lg:pb-[220px]"
+      className="relative z-30 bg-white w-full px-6 pt-20 pb-16 md:px-16 md:pt-28 md:pb-[200px] lg:pb-[220px]"
     >
       <div className="max-w-[1440px] mx-auto w-full flex flex-col gap-24">
         {/* Footer Top: Have any questions? Form */}
@@ -137,12 +137,25 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Brand Logo - Absolutely positioned in the bottom right corner (outside padding area) */}
+      {/* Brand Logo - Aligned to right on mobile, absolutely positioned in the bottom right corner on desktop */}
       <img
         src="/images/wilton-logo.svg"
         alt="Wilton Weavers Logo"
-        className="absolute bottom-0 right-0 w-[240px] sm:w-[300px] md:w-[450px] lg:w-[540px] h-auto object-contain pointer-events-none select-none z-0"
+        className="relative block ml-auto mt-12 w-[240px] sm:w-[300px] md:absolute md:bottom-0 md:right-0 md:w-[450px] lg:w-[540px] md:mt-0 h-auto object-contain pointer-events-none select-none z-0"
       />
+
+      {/* Brandsmaya Creation Link */}
+      <div className="footer-link-item relative mt-8 md:absolute md:bottom-12 md:left-16 md:mt-0 z-10">
+        Another creation of{" "}
+        <a
+          href="https://www.brandsmaya.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-link-item transition-colors duration-300"
+        >
+          Brandsmaya
+        </a>
+      </div>
     </footer>
   );
 }

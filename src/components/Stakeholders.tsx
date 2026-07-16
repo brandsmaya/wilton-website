@@ -57,7 +57,7 @@ const stakeholders: Stakeholder[] = [
     metaLabel1: "Compliance",
     metaValue1: "Fully Audited",
     metaLabel2: "Origin",
-    metaValue2: "United Kingdom",
+    metaValue2: "India",
   },
   {
     number: "05",
