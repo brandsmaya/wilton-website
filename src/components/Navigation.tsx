@@ -3,16 +3,21 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const menuLinks = [
-  { name: "About Us", href: "#home" },
-  { name: "Products", href: "#home" },
-  { name: "Team", href: "#stakeholders" },
-  { name: "Contact Us", href: "#contact" },
-];
-
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isTeamPage, setIsTeamPage] = useState(false);
+
+  useEffect(() => {
+    setIsTeamPage(window.location.pathname.includes("/team"));
+  }, []);
+
+  const menuLinks = [
+    { name: "About Us", href: isTeamPage ? "/#home" : "#home" },
+    { name: "Products", href: isTeamPage ? "/#home" : "#home" },
+    { name: "Team", href: isTeamPage ? "#team-hero" : "/team" },
+    { name: "Contact Us", href: isTeamPage ? "/#contact" : "#contact" },
+  ];
 
   useEffect(() => {
     // The hero pins for one full viewport height of scroll while its own
@@ -82,7 +87,7 @@ export default function Navigation() {
         <div className="mx-auto flex justify-between items-center">
           {/* Large Wilton Weavers logo SVG (invisible by default, fades in on scroll) */}
           <a
-            href="#home"
+            href={isTeamPage ? "/#home" : "#home"}
             className={`flex flex-col select-none group w-32 sm:w-44 md:w-56 transition-all duration-500 ${isScrolled
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-4 pointer-events-none"

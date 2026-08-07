@@ -255,7 +255,7 @@ export default function TeamSection() {
             {/* Meet Wilton Team Button */}
             <a
               ref={buttonRef}
-              href="#contact"
+              href="/team"
               className="absolute wilton-button transition-colors duration-300 select-none pointer-events-auto opacity-0 will-change-transform"
             >
               Meet Wilton Team{" "}

@@ -3,6 +3,12 @@
 import React from "react";
 
 export default function Footer() {
+  const [isTeamPage, setIsTeamPage] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsTeamPage(window.location.pathname.includes("/team"));
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   };
@@ -86,11 +92,11 @@ export default function Footer() {
           <div className="lg:col-span-3 footer-column">
             <h4 className="footer-title">Navigation</h4>
             <div className="footer-links-list">
-              <a href="#home" className="footer-link-item">About Us</a>
-              <a href="#home" className="footer-link-item">Products</a>
-              <a href="#stakeholders" className="footer-link-item">Team</a>
-              <a href="#contact" className="footer-link-item">Contact Us</a>
-              <a href="#home" className="footer-link-item">CSR</a>
+              <a href={isTeamPage ? "/#home" : "#home"} className="footer-link-item">About Us</a>
+              <a href={isTeamPage ? "/#home" : "#home"} className="footer-link-item">Products</a>
+              <a href={isTeamPage ? "#team-hero" : "/team"} className="footer-link-item">Team</a>
+              <a href={isTeamPage ? "/#contact" : "#contact"} className="footer-link-item">Contact Us</a>
+              <a href={isTeamPage ? "/#home" : "#home"} className="footer-link-item">CSR</a>
             </div>
           </div>
 
