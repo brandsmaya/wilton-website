@@ -164,13 +164,15 @@ export default function Hero() {
           {/* Top Part: Logo */}
           <div
             ref={logoContainerRef}
-            className="w-full max-w-[200px] lg:max-w-[520px]  h-auto lg:h-[200px] aspect-[646.03/200] relative select-none"
+            className="w-full max-w-[200px] lg:max-w-[520px] h-auto lg:h-[200px] aspect-[646.03/200] relative"
           >
-            <img
-              src="/images/wilton-logo.svg"
-              alt="Wilton Weavers Logo"
-              className="w-full h-full object-contain object-left"
-            />
+            <a href="/" className="block w-full h-full cursor-pointer">
+              <img
+                src="/images/wilton-logo.svg"
+                alt="Wilton Weavers Logo"
+                className="w-full h-full object-contain object-left"
+              />
+            </a>
           </div>
 
           {/* Bottom Part: Content Row (Text & CTA aligned with reserved video slot) */}

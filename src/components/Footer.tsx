@@ -3,11 +3,15 @@
 import React from "react";
 
 export default function Footer() {
-  const [isTeamPage, setIsTeamPage] = React.useState(false);
+  const [currentPath, setCurrentPath] = React.useState("");
 
   React.useEffect(() => {
-    setIsTeamPage(window.location.pathname.includes("/team"));
+    setCurrentPath(window.location.pathname);
   }, []);
+
+  const isTeamPage = currentPath.includes("/team");
+  const isAboutPage = currentPath.includes("/about");
+  const isSubPage = isTeamPage || isAboutPage;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -92,11 +96,11 @@ export default function Footer() {
           <div className="lg:col-span-3 footer-column">
             <h4 className="footer-title">Navigation</h4>
             <div className="footer-links-list">
-              <a href={isTeamPage ? "/#home" : "#home"} className="footer-link-item">About Us</a>
-              <a href={isTeamPage ? "/#home" : "#home"} className="footer-link-item">Products</a>
+              <a href={isAboutPage ? "#about-hero" : "/about"} className="footer-link-item">About Us</a>
+              <a href={isSubPage ? "/#home" : "#home"} className="footer-link-item">Products</a>
               <a href={isTeamPage ? "#team-hero" : "/team"} className="footer-link-item">Team</a>
-              <a href={isTeamPage ? "/#contact" : "#contact"} className="footer-link-item">Contact Us</a>
-              <a href={isTeamPage ? "/#home" : "#home"} className="footer-link-item">CSR</a>
+              <a href={isSubPage ? "/#contact" : "#contact"} className="footer-link-item">Contact Us</a>
+              <a href={isSubPage ? "/#home" : "#home"} className="footer-link-item">CSR</a>
             </div>
           </div>
 
@@ -143,12 +147,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Brand Logo - Aligned to right on mobile, absolutely positioned in the bottom right corner on desktop */}
-      <img
-        src="/images/wilton-logo.svg"
-        alt="Wilton Weavers Logo"
-        className="relative block ml-auto mt-12 w-[240px] sm:w-[300px] md:absolute md:bottom-0 md:right-0 md:w-[450px] lg:w-[540px] md:mt-0 h-auto object-contain pointer-events-none select-none z-0"
-      />
+      <a
+        href="/"
+        className="relative block ml-auto mt-12 w-[240px] sm:w-[300px] md:absolute md:bottom-0 md:right-0 md:w-[450px] lg:w-[540px] md:mt-0 h-auto z-0 cursor-pointer"
+      >
+        <img
+          src="/images/wilton-logo.svg"
+          alt="Wilton Weavers Logo"
+          className="w-full h-full object-contain select-none"
+        />
+      </a>
 
       {/* Brandsmaya Creation Link */}
       <div className="footer-link-item relative mt-8 md:absolute md:bottom-12 md:left-16 md:mt-0 z-10">

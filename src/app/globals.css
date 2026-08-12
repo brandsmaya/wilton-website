@@ -216,3 +216,10 @@ html.lenis {
   color: #666666;
   line-height: 1.6;
 }
+
+.about-caption {
+  font-size: 23px;
+  font-weight: 400;
+  font-family: var(--font-sans);
+  letter-spacing: -.05em;
+}

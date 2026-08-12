@@ -222,34 +222,6 @@ export default function TeamMembers() {
   return (
     <>
       {/* Responsibility Lead — image left, member grid right */}
-      <section
-        id="responsibility-leads"
-        className="relative z-30 w-full bg-white py-20 md:py-28"
-      >
-        <SectionHeader
-          eyebrow="Responsibility Lead"
-          title="The department heads driving daily craft."
-          paragraph="Fifteen leads, each accountable for a distinct discipline — from aesthetics to purchase, quality to IT."
-        />
-
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 md:px-16 lg:flex-row lg:gap-16">
-          <div className="shrink-0 lg:w-[34%]">
-            <div className="lg:sticky lg:top-28">
-              <FeaturedCard member={responsibilityLeads[activeLead]} />
-            </div>
-          </div>
-
-          <div className="flex-1">
-            <TeamGrid
-              members={responsibilityLeads}
-              layout={RESPONSIBILITY_LAYOUT}
-              active={activeLead}
-              onSelect={setActiveLead}
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Way Finders — member grid left, image right */}
       <section
         id="way-finders"
@@ -274,6 +246,35 @@ export default function TeamMembers() {
               layout={WAYFINDER_LAYOUT}
               active={activeWayFinder}
               onSelect={setActiveWayFinder}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Responsibility Lead — image left, member grid right */}
+      <section
+        id="responsibility-leads"
+        className="relative z-30 w-full bg-white py-20 md:py-28"
+      >
+        <SectionHeader
+          eyebrow="Responsibility Lead"
+          title="The department heads driving daily craft."
+          paragraph="Fifteen leads, each accountable for a distinct discipline — from aesthetics to purchase, quality to IT."
+        />
+
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 px-6 md:px-16 lg:flex-row lg:gap-16">
+          <div className="shrink-0 lg:w-[34%]">
+            <div className="lg:sticky lg:top-28">
+              <FeaturedCard member={responsibilityLeads[activeLead]} />
+            </div>
+          </div>
+
+          <div className="flex-1">
+            <TeamGrid
+              members={responsibilityLeads}
+              layout={RESPONSIBILITY_LAYOUT}
+              active={activeLead}
+              onSelect={setActiveLead}
             />
           </div>
         </div>

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function TeamHero() {
+export default function AboutHero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
   const topContentRef = useRef<HTMLDivElement>(null);
@@ -13,7 +13,6 @@ export default function TeamHero() {
   const placeholderRef = useRef<HTMLDivElement>(null);
   const imageWrapRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-  const descTextRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -69,12 +68,6 @@ export default function TeamHero() {
           "-=1.4"
         )
         .fromTo(
-          descTextRef.current,
-          { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1.6 },
-          "-=1.4"
-        )
-        .fromTo(
           imageWrapRef.current,
           { autoAlpha: 0 },
           { autoAlpha: 1, duration: 2.2, ease: "power3.out" },
@@ -107,8 +100,7 @@ export default function TeamHero() {
           },
           0
         )
-        // Phase 2: Scale image to fullscreen and fade out second text (Progress 0.5 to 1.0)
-        // Using left/top/width/height animation completely avoids scale distortion (stretching/shrinking).
+        // Phase 2: Scale image to fullscreen and fade out (Progress 0.5 to 1.0)
         .to(
           imageWrapRef.current,
           {
@@ -119,16 +111,6 @@ export default function TeamHero() {
             borderRadius: 0,
             ease: "sine.inOut",
             duration: 0.5,
-          },
-          0.5
-        )
-        .to(
-          descTextRef.current,
-          {
-            opacity: 0,
-            y: -40,
-            ease: "power2.inOut",
-            duration: 0.4,
           },
           0.5
         );
@@ -147,7 +129,7 @@ export default function TeamHero() {
 
   return (
     <section
-      id="team-hero"
+      id="about-hero"
       ref={sectionRef}
       className="relative w-full bg-white"
     >
@@ -178,16 +160,13 @@ export default function TeamHero() {
             {/* Main introductory statement - wide/full-width styling */}
             <p
               ref={textRef}
-              className="main-heading text-brand-dark select-none w-full max-w-[1300px] font-light leading-snug"
+              className="main-heading text-brand-dark select-none w-full max-w-[1300px] font-light leading-snug whitespace-pre-line"
             >
-              Behind every world-class carpet is a team committed to precision,
-              craftsmanship, and uncompromising quality. Meet the people who
-              transform yarn into products trusted by the world's leading aviation,
-              marine, hospitality and commercial brands.
+              Most manufacturers show you what they{"\n"}make. We show you where, because at Wilton,{"\n"}the two are inseparable.
             </p>
           </div>
 
-          {/* Bottom Row: Image placeholder (left) & second text (right) */}
+          {/* Bottom Row: Image placeholder (left) */}
           <div className="mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mt-8 lg:mt-0">
             {/* Left Column: Image slot with aspect-ratio preservation and dvh-based auto-scaling */}
             <div className="lg:col-span-8 flex items-end justify-start">
@@ -195,19 +174,6 @@ export default function TeamHero() {
                 ref={placeholderRef}
                 className="w-auto h-[22dvh] lg:h-[26dvh] max-w-[560px] aspect-[4/2] pointer-events-none opacity-0"
               />
-            </div>
-
-            {/* Right Column: Second text */}
-            <div className="lg:col-span-4 flex flex-col justify-end items-end">
-              <p
-                ref={descTextRef}
-                className="body-text text-brand-grey max-w-[340px] text-right font-light leading-relaxed select-none"
-              >
-                At Wilton Weavers, every department works as one, from design and
-                engineering to weaving, quality assurance and customer support. Together,
-                we create woven flooring solutions that perform beautifully in the world's
-                most demanding environments.
-              </p>
             </div>
           </div>
         </div>
@@ -220,8 +186,8 @@ export default function TeamHero() {
         >
           <img
             ref={imageRef}
-            src="/images/team/wilton-team.jpg"
-            alt="Wilton Weavers Team"
+            src="/images/about/wilton-about.jpg"
+            alt="Wilton Weavers About"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#626262]/20 via-transparent to-transparent pointer-events-none" />

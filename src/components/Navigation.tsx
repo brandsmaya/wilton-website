@@ -6,17 +6,21 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isTeamPage, setIsTeamPage] = useState(false);
+  const [currentPath, setCurrentPath] = useState("");
 
   useEffect(() => {
-    setIsTeamPage(window.location.pathname.includes("/team"));
+    setCurrentPath(window.location.pathname);
   }, []);
 
+  const isTeamPage = currentPath.includes("/team");
+  const isAboutPage = currentPath.includes("/about");
+  const isSubPage = isTeamPage || isAboutPage;
+
   const menuLinks = [
-    { name: "About Us", href: isTeamPage ? "/#home" : "#home" },
-    { name: "Products", href: isTeamPage ? "/#home" : "#home" },
+    { name: "About Us", href: isAboutPage ? "#about-hero" : "/about" },
+    { name: "Products", href: isSubPage ? "/#home" : "#home" },
     { name: "Team", href: isTeamPage ? "#team-hero" : "/team" },
-    { name: "Contact Us", href: isTeamPage ? "/#contact" : "#contact" },
+    { name: "Contact Us", href: isSubPage ? "/#contact" : "#contact" },
   ];
 
   useEffect(() => {
@@ -87,7 +91,7 @@ export default function Navigation() {
         <div className="mx-auto flex justify-between items-center">
           {/* Large Wilton Weavers logo SVG (invisible by default, fades in on scroll) */}
           <a
-            href={isTeamPage ? "/#home" : "#home"}
+            href="/"
             className={`flex flex-col select-none group w-32 sm:w-44 md:w-56 transition-all duration-500 ${isScrolled
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-4 pointer-events-none"
