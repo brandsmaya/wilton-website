@@ -1,26 +1,24 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [currentPath, setCurrentPath] = useState("");
-
-  useEffect(() => {
-    setCurrentPath(window.location.pathname);
-  }, []);
+  const currentPath = usePathname();
 
   const isTeamPage = currentPath.includes("/team");
   const isAboutPage = currentPath.includes("/about");
-  const isSubPage = isTeamPage || isAboutPage;
+  const isPressPage = currentPath.includes("/press-center");
+  const isSubPage = isTeamPage || isAboutPage || isPressPage;
 
   const menuLinks = [
     { name: "About Us", href: isAboutPage ? "#about-hero" : "/about" },
-    { name: "Products", href: isSubPage ? "/#home" : "#home" },
     { name: "Team", href: isTeamPage ? "#team-hero" : "/team" },
-    { name: "Contact Us", href: isSubPage ? "/#contact" : "#contact" },
+    { name: "Press Center", href: isPressPage ? "#press-list" : "/press-center" },
+    { name: "Contact Us", href: "#contact" },
   ];
 
   useEffect(() => {

@@ -189,7 +189,7 @@ export default function Hero() {
 
               <a
                 ref={ctaRef}
-                href="#contact"
+                href="/about"
                 className="wilton-button transition-colors duration-300 select-none"
               >
                 About Us <img src="/images/arrow-up-right.svg" alt="Arrow Up Right" className="w-[20px] h-[20px] object-contain shrink-0" />

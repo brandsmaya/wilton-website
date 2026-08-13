@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import PageTransition from "@/components/PageTransition";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -27,6 +28,7 @@ export default function RootLayout({
         <div className="w-full flex flex-col flex-1">
           {children}
         </div>
+        <PageTransition />
       </body>
     </html>
   );

@@ -1,17 +1,15 @@
 "use client";
 
-import React from "react";
+import type React from "react";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
-  const [currentPath, setCurrentPath] = React.useState("");
-
-  React.useEffect(() => {
-    setCurrentPath(window.location.pathname);
-  }, []);
+  const currentPath = usePathname();
 
   const isTeamPage = currentPath.includes("/team");
   const isAboutPage = currentPath.includes("/about");
-  const isSubPage = isTeamPage || isAboutPage;
+  const isPressPage = currentPath.includes("/press-center");
+  const isSubPage = isTeamPage || isAboutPage || isPressPage;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,9 +95,9 @@ export default function Footer() {
             <h4 className="footer-title">Navigation</h4>
             <div className="footer-links-list">
               <a href={isAboutPage ? "#about-hero" : "/about"} className="footer-link-item">About Us</a>
-              <a href={isSubPage ? "/#home" : "#home"} className="footer-link-item">Products</a>
               <a href={isTeamPage ? "#team-hero" : "/team"} className="footer-link-item">Team</a>
-              <a href={isSubPage ? "/#contact" : "#contact"} className="footer-link-item">Contact Us</a>
+              <a href={isPressPage ? "#press-list" : "/press-center"} className="footer-link-item">Press Center</a>
+              <a href="#contact" className="footer-link-item">Contact Us</a>
               <a href={isSubPage ? "/#home" : "#home"} className="footer-link-item">CSR</a>
             </div>
           </div>

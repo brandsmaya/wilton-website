@@ -223,3 +223,23 @@ html.lenis {
   font-family: var(--font-sans);
   letter-spacing: -.05em;
 }
+
+.sustainability-bullet {
+  font-size: 26px;
+  font-weight: 400;
+  font-family: var(--font-sans);
+  letter-spacing: -.05em;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .sustainability-bullet {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sustainability-bullet {
+    font-size: 43px;
+  }
+}

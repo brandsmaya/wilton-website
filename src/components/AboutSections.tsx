@@ -55,14 +55,19 @@ export default function AboutSections() {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     const ctx = gsap.context(() => {
-      // Set initial positions via GSAP to avoid conflicts with React state re-renders
+      // Set initial positions via GSAP to avoid conflicts with React state re-renders.
+      // x/y are reset alongside xPercent/yPercent because GSAP tracks pixel and
+      // percent offsets as separate, additive transform components — if an
+      // element still carries a stale pixel `y` from an earlier mount (e.g. a
+      // client-side route transition that reused the DOM node), setting only
+      // yPercent here would combine with it instead of overwriting it.
       slides.forEach((_, idx) => {
         if (idx > 0) {
-          gsap.set(imageContainersRef.current[idx], { yPercent: -100 });
-          gsap.set(textContainersRef.current[idx], { opacity: 0, yPercent: 40 });
+          gsap.set(imageContainersRef.current[idx], { x: 0, y: 0, yPercent: -100 });
+          gsap.set(textContainersRef.current[idx], { opacity: 0, x: 0, y: 0, yPercent: 40 });
         } else {
-          gsap.set(imageContainersRef.current[idx], { yPercent: 0 });
-          gsap.set(textContainersRef.current[idx], { opacity: 1, yPercent: 0 });
+          gsap.set(imageContainersRef.current[idx], { x: 0, y: 0, yPercent: 0 });
+          gsap.set(textContainersRef.current[idx], { opacity: 1, x: 0, y: 0, yPercent: 0 });
         }
       });
 
