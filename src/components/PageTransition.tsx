@@ -73,7 +73,11 @@ export default function PageTransition() {
         // it here, while fully covered, so the jump is never visible.
         window.scrollTo(0, 0);
         if (pendingHrefRef.current) {
-          router.push(pendingHrefRef.current);
+          // scroll: false — Next's own default scroll-to-top handling runs
+          // on native scroll, not through Lenis, so it can race with (and
+          // undo) the resets here. This component owns scroll position for
+          // the whole transition instead.
+          router.push(pendingHrefRef.current, { scroll: false });
         }
       }, COVER_DURATION * 1000);
     };
@@ -90,8 +94,15 @@ export default function PageTransition() {
 
     // Defensive second reset: covers direct router.push() calls elsewhere
     // and any case where Lenis re-synced to a stale scroll position while
-    // the new page's SmoothScroll instance was mounting.
+    // the new page's SmoothScroll instance was mounting. A third reset
+    // lands one frame later, after the new page's own SmoothScroll has
+    // constructed its Lenis instance — Lenis reads the native scroll
+    // position at construction time, so this is what actually makes the
+    // *smooth-scrolled* position start at 0, not just the native one.
     window.scrollTo(0, 0);
+    const rafId = window.requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
 
     // Every pinned section's own ScrollTrigger.create() runs as soon as it
     // mounts, each recalculating its start/end against whatever the page
@@ -112,7 +123,10 @@ export default function PageTransition() {
       transition: { duration: REVEAL_DURATION, ease: EASE, delay: REVEAL_DELAY },
     });
 
-    return () => window.clearTimeout(refreshTimer);
+    return () => {
+      window.clearTimeout(refreshTimer);
+      window.cancelAnimationFrame(rafId);
+    };
   }, [pathname, controls]);
 
   return (
