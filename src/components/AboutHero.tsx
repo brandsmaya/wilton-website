@@ -25,10 +25,10 @@ export default function AboutHero() {
         const slot = placeholderRef.current;
         const parent = pinRef.current;
         if (!slot || !parent) return { left: 0, top: 0, width: 0, height: 0 };
-        
+
         const rect = slot.getBoundingClientRect();
         const parentRect = parent.getBoundingClientRect();
-        
+
         return {
           left: rect.left - parentRect.left,
           top: rect.top - parentRect.top,
@@ -164,7 +164,7 @@ export default function AboutHero() {
               ref={textRef}
               className="main-heading text-brand-dark select-none w-full max-w-[1300px] whitespace-pre-line"
             >
-              Most manufacturers show you what they{"\n"}make. We show you where, because at Wilton,{"\n"}the two are inseparable.
+              Most manufacturers show you what they make. We show you where, because at Wilton, the two are inseparable.
             </p>
           </div>
 

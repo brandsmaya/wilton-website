@@ -86,7 +86,7 @@ export default function AboutSections() {
               slides.length - 1,
               Math.max(0, Math.round(progress * (slides.length - 1)))
             );
-            
+
             // Direct DOM manipulation to highlight the active dot
             // This prevents React state re-renders from destroying the GSAP pin-spacer
             navButtonsRef.current.forEach((btn, idx) => {
@@ -117,31 +117,31 @@ export default function AboutSections() {
             ease: "sine.inOut"
           }
         )
-        // Slide current image in from the top
-        .fromTo(
-          imageContainersRef.current[i],
-          { yPercent: -100 },
-          {
-            yPercent: 0,
-            duration: 1,
-            ease: "sine.inOut"
-          },
-          "<" // start at same time as previous slide's fade-out
-        )
-        // Slide current text in from the bottom
-        .fromTo(
-          textContainersRef.current[i],
-          { opacity: 0, yPercent: 40 },
-          {
-            opacity: 1,
-            yPercent: 0,
-            duration: 0.8,
-            ease: "sine.out"
-          },
-          "-=0.6" // stagger text slightly
-        )
-        // Hold current slide on screen
-        .to({}, { duration: 0.5 });
+          // Slide current image in from the top
+          .fromTo(
+            imageContainersRef.current[i],
+            { yPercent: -100 },
+            {
+              yPercent: 0,
+              duration: 1,
+              ease: "sine.inOut"
+            },
+            "<" // start at same time as previous slide's fade-out
+          )
+          // Slide current text in from the bottom
+          .fromTo(
+            textContainersRef.current[i],
+            { opacity: 0, yPercent: 40 },
+            {
+              opacity: 1,
+              yPercent: 0,
+              duration: 0.8,
+              ease: "sine.out"
+            },
+            "-=0.6" // stagger text slightly
+          )
+          // Hold current slide on screen
+          .to({}, { duration: 0.5 });
       }
     }, pinRef);
 
@@ -169,7 +169,7 @@ export default function AboutSections() {
         className="relative w-full h-[100dvh] overflow-hidden flex items-center bg-white"
       >
         <div className="w-full h-full flex flex-col lg:flex-row items-center justify-between relative">
-          
+
           {/* Left Column: Image Stack (touches left edge of screen, square corners) */}
           <div className="w-full lg:w-[55%] h-[40dvh] lg:h-[75dvh] overflow-hidden bg-brand-light relative">
             {slides.map((slide, idx) => (
@@ -194,8 +194,8 @@ export default function AboutSections() {
 
           {/* Right Column: Text & Sticky Numbers Navigation (right) */}
           {/* Right padding is exactly pr-16 (64px) from right edge */}
-          <div className="w-full lg:w-[45%] flex items-center justify-between pl-6 pr-16 md:pl-16 lg:pl-20 h-full relative min-h-[140px] lg:min-h-none py-10 lg:py-0">
-            
+          <div className="w-full lg:w-[45%] flex items-center justify-between pl-6 pr-8 md:pl-16 lg:pl-20 h-full relative min-h-[140px] lg:min-h-none py-10 lg:py-0">
+
             {/* Text Stack */}
             <div className="relative flex-1 h-[140px] lg:h-[240px]">
               {slides.map((slide, idx) => (
@@ -225,11 +225,10 @@ export default function AboutSections() {
                     navButtonsRef.current[idx] = el;
                   }}
                   onClick={() => handleNavClick(idx)}
-                  className={`w-7 h-7 lg:w-8 lg:h-8 rounded-full border flex items-center justify-center text-[10px] lg:text-xs font-light transition-all duration-300 cursor-pointer ${
-                    idx === 0
+                  className={`w-7 h-7 lg:w-8 lg:h-8 rounded-full border flex items-center justify-center text-[10px] lg:text-xs font-light transition-all duration-300 cursor-pointer ${idx === 0
                       ? "border-brand-dark text-brand-dark font-medium bg-transparent scale-110"
                       : "border-brand-grey/25 text-brand-grey/40 hover:border-brand-grey/50 hover:text-brand-grey bg-transparent"
-                  }`}
+                    }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 >
                   {idx + 1}
@@ -238,7 +237,7 @@ export default function AboutSections() {
             </div>
 
           </div>
-          
+
         </div>
       </div>
     </section>

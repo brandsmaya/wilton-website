@@ -47,24 +47,24 @@ const FULL_BLEED_STYLE = {
 
 function LogoGrid({ logos, layout }: { logos: LogoItem[]; layout: LayoutCell[][] }) {
   return (
-    <div style={FULL_BLEED_STYLE} className="grid grid-cols-3">
+    <div style={FULL_BLEED_STYLE} className="grid grid-cols-1 md:grid-cols-3">
       {layout.flatMap((row, rowIdx) =>
         row.map((cell, colIdx) =>
           cell === null ? (
             <div
               key={`gap-${rowIdx}-${colIdx}`}
               aria-hidden="true"
-              className="aspect-square border border-brand-dark/15"
+              className="hidden md:block md:aspect-square border border-brand-dark/15"
             />
           ) : (
             <div
               key={logos[cell].name}
-              className="aspect-square border border-brand-dark/15 flex items-center justify-center p-8 sm:p-12"
+              className="h-32 md:h-auto md:aspect-square border border-brand-dark/15 flex items-center justify-center p-8 sm:p-12"
             >
               <img
                 src={logos[cell].src}
                 alt={logos[cell].name}
-                className="max-w-full max-h-full object-contain"
+                className="max-w-[50%] md:max-w-full max-h-[75px] md:max-h-full object-contain"
               />
             </div>
           )
