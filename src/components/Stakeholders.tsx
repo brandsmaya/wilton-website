@@ -351,20 +351,20 @@ export default function Stakeholders() {
                   </div>
 
                   <div className="my-auto flex flex-col items-start">
-                    <span className="block text-5xl font-extralight leading-none tracking-tight select-none">
+                    <span className="block main-heading select-none">
                       {s.number}
                     </span>
-                    <h3 className="text-xl font-light tracking-widest uppercase mt-3 select-none">
+                    <h3 className="sub-heading mt-3 select-none">
                       {s.title}
                     </h3>
                     {s.caption && (
-                      <p className="body-text text-white mt-3 max-w-sm">
+                      <p className="body-small text-white mt-3 max-w-sm">
                         {s.caption}
                       </p>
                     )}
                   </div>
 
-                  <div className="w-full border-t border-white/10 text-[9px] uppercase tracking-wider mt-4">
+                  <div className="w-full border-t border-white/10 label-small mt-4">
                     <div className="flex justify-between py-1.5 border-b border-white/5">
                       <span className="opacity-60">{s.metaLabel1}</span>
                       <span className="font-medium">{s.metaValue1}</span>

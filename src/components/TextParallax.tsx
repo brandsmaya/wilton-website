@@ -207,7 +207,7 @@ export default function TextParallax() {
         ))}
 
         {/* Text effect: huge statement heading, word by word colour reveal */}
-        <h2 className="relative z-10 order-3 col-span-2 py-8 md:py-0 text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] tracking-tight text-center max-w-[1140px] select-none mix-blend-difference text-white">
+        <h2 className="relative z-10 order-3 col-span-2 py-8 md:py-0 huge-heading text-center max-w-[1140px] select-none mix-blend-difference text-white">
           {words.map((word, i) => (
             <span key={i} className="inline-block mr-[0.22em] last:mr-0">
               {word.accent ? (

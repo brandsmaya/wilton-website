@@ -160,7 +160,7 @@ export default function AboutHero() {
             {/* Main introductory statement - wide/full-width styling */}
             <p
               ref={textRef}
-              className="main-heading text-brand-dark select-none w-full max-w-[1300px] font-light leading-snug whitespace-pre-line"
+              className="main-heading text-brand-dark select-none w-full max-w-[1300px] whitespace-pre-line"
             >
               Most manufacturers show you what they{"\n"}make. We show you where, because at Wilton,{"\n"}the two are inseparable.
             </p>

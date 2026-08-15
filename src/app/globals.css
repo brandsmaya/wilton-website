@@ -67,7 +67,7 @@ html.lenis {
 }
 
 .main-heading {
-  font-size: 43px;
+  font-size: clamp(28px, 4vw, 43px);
   line-height: 1.1;
   font-weight: 400;
   letter-spacing: -.05em;
@@ -75,7 +75,7 @@ html.lenis {
 }
 
 .big-heading {
-  font-size: 72px;
+  font-size: clamp(38px, 5.5vw, 72px);
   line-height: 1.1;
   font-weight: 400;
   letter-spacing: -.05em;
@@ -83,29 +83,56 @@ html.lenis {
 }
 
 .sub-heading {
-  font-size: 23px;
+  font-size: clamp(20px, 2.5vw, 23px);
   font-weight: 400;
   letter-spacing: -.05em;
   font-family: var(--font-sans);
 }
 
 .body-large {
-  font-size: 18px;
+  font-size: clamp(16px, 1.5vw, 18px);
   font-weight: 400;
   font-family: var(--font-sans);
   letter-spacing: -.05em;
+  line-height: 1.6;
 }
 
-
 .body-text {
-  font-size: 16px;
+  font-size: clamp(14px, 1.2vw, 16px);
   font-weight: 400;
   font-family: var(--font-sans);
+  line-height: 1.6;
 }
 
 .body-small {
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   font-weight: 400;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+
+.label-small {
+  font-size: clamp(10px, 1vw, 12px);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  font-family: var(--font-sans);
+}
+
+.huge-heading {
+  font-size: clamp(36px, 8vw, 96px) !important;
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -.05em;
+  font-family: var(--font-sans);
+}
+
+.watermark-text {
+  font-size: clamp(90px, 15vw, 240px);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  color: #626262;
   font-family: var(--font-sans);
 }
 

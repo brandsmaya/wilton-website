@@ -228,7 +228,7 @@ export default function TeamSection() {
           ref={teamTextRef}
           className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none select-none"
         >
-          <span className="text-[90px] sm:text-[160px] md:text-[240px] tracking-[0.2em] text-[#626262] leading-none">
+          <span className="watermark-text">
             TEAM
           </span>
         </div>

@@ -88,12 +88,12 @@ export default function ImageSection({
           className="relative z-10 text-center px-6 max-w-[800px] flex flex-col items-center gap-4"
         >
           {subtitle && (
-            <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-white/80 font-medium">
+            <span className="label-small text-white/80">
               {subtitle}
             </span>
           )}
           {title && (
-            <h2 className="text-3xl md:text-5xl font-light text-white tracking-wide leading-tight select-none">
+            <h2 className="main-heading text-white select-none">
               {title}
             </h2>
           )}

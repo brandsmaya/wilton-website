@@ -97,18 +97,18 @@ export default function SplitContent({
           }`}
         >
           {tag && (
-            <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-brand-grey mb-6">
+            <span className="label-small text-brand-grey mb-6">
               {tag}
             </span>
           )}
-          <h2 className="text-3xl md:text-5xl font-light text-brand-dark leading-tight mb-8 select-none">
+          <h2 className="main-heading text-brand-dark mb-8 select-none">
             {title}
           </h2>
-          <p className="text-base md:text-lg leading-relaxed text-brand-grey font-light mb-6 select-none">
+          <p className="body-large text-brand-grey mb-6 select-none">
             {description}
           </p>
           {detailText && (
-            <p className="text-sm leading-relaxed text-brand-grey/85 font-light select-none">
+            <p className="body-small text-brand-grey/85 select-none">
               {detailText}
             </p>
           )}

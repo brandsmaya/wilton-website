@@ -12,6 +12,17 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Wilton Weavers | Luxury Carpet Manufacturers",
   description: "Precision-engineered aviation carpets and fine wool broadloom. Wilton Weavers combines modern design, structural engineering excellence, and timeless craftsmanship.",
+  icons: {
+    icon: [
+      { url: "/images/favicon/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    shortcut: "/images/favicon/favicon.ico",
+    apple: [
+      { url: "/images/favicon/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/images/favicon/site.webmanifest",
 };
 
 export default function RootLayout({

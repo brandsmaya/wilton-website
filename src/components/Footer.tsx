@@ -1,6 +1,6 @@
 "use client";
 
-import type React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function Footer() {
@@ -11,8 +11,54 @@ export default function Footer() {
   const isPressPage = currentPath.includes("/press-center");
   const isSubPage = isTeamPage || isAboutPage || isPressPage;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    const fieldName = id.replace("footer-", "");
+    setFormData((prev) => ({
+      ...prev,
+      [fieldName]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+        setErrorMessage(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+    }
   };
 
   return (
@@ -43,6 +89,9 @@ export default function Footer() {
                     id="footer-name"
                     type="text"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
+                    disabled={status === "sending"}
                     className="wilton-form-input"
                   />
                 </div>
@@ -56,6 +105,9 @@ export default function Footer() {
                     id="footer-email"
                     type="email"
                     required
+                    value={formData.email}
+                    onChange={handleChange}
+                    disabled={status === "sending"}
                     className="wilton-form-input"
                   />
                 </div>
@@ -68,6 +120,9 @@ export default function Footer() {
                 </label>
                 <textarea
                   id="footer-message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  disabled={status === "sending"}
                   className="wilton-form-textarea"
                 />
               </div>
@@ -75,15 +130,35 @@ export default function Footer() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="wilton-button hover:bg-[#3f3f3f] transition-colors duration-300 self-start select-none cursor-pointer"
+                disabled={status === "sending"}
+                className={`wilton-button transition-colors duration-300 self-start select-none ${
+                  status === "sending"
+                    ? "bg-[#626262]/50 text-white/50 cursor-not-allowed"
+                    : "hover:bg-[#3f3f3f] cursor-pointer"
+                }`}
               >
-                Send{" "}
+                {status === "sending" ? "Sending..." : "Send"}{" "}
                 <img
                   src="/images/arrow-up-right.svg"
                   alt="Arrow Up Right"
                   className="w-[20px] h-[20px] object-contain shrink-0 brightness-0 invert"
                 />
               </button>
+
+              {/* Feedback messages */}
+              {status === "success" && (
+                <div className="w-full bg-[#f5f5f5] border-l-4 border-emerald-500 text-[#626262] p-4 text-sm mt-2 transition-all duration-300">
+                  <p className="font-semibold text-emerald-700 mb-1">Message Sent!</p>
+                  <p>Thank you for reaching out. We will get back to you shortly.</p>
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className="w-full bg-[#f5f5f5] border-l-4 border-rose-500 text-[#626262] p-4 text-sm mt-2 transition-all duration-300">
+                  <p className="font-semibold text-rose-700 mb-1">Failed to Send</p>
+                  <p>{errorMessage}</p>
+                </div>
+              )}
             </form>
           </div>
         </div>

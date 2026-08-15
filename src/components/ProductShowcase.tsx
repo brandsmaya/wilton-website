@@ -83,10 +83,10 @@ export default function ProductShowcase() {
       <div className="max-w-[1440px] mx-auto w-full">
         {/* Section Header */}
         <div ref={headerRef} className="max-w-[600px] mb-16 md:mb-24">
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium text-brand-grey block mb-6">
+          <span className="label-small text-brand-grey block mb-6">
             Our Divisions
           </span>
-          <h2 className="text-3xl md:text-5xl font-light text-brand-dark leading-tight select-none">
+          <h2 className="main-heading text-brand-dark select-none">
             Two distinct offerings, bound by the same code of absolute craftsmanship.
           </h2>
         </div>
@@ -116,13 +116,13 @@ export default function ProductShowcase() {
 
               {/* Card Text Info */}
               <div className="w-full flex flex-col items-start pr-0 lg:pr-12">
-                <span className="text-[10px] uppercase tracking-widest text-brand-grey/80 mb-2 font-medium">
+                <span className="label-small text-brand-grey/80 mb-2">
                   {product.category}
                 </span>
-                <h3 className="text-2xl md:text-3xl font-light text-brand-dark mb-4 group-hover:text-brand-dark/80 transition-colors duration-300">
+                <h3 className="sub-heading text-brand-dark mb-4 group-hover:text-brand-dark/80 transition-colors duration-300">
                   {product.title}
                 </h3>
-                <p className="text-sm md:text-base leading-relaxed text-brand-grey font-light mb-6">
+                <p className="body-text text-brand-grey mb-6">
                   {product.description}
                 </p>
 

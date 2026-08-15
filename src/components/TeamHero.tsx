@@ -178,7 +178,7 @@ export default function TeamHero() {
             {/* Main introductory statement - wide/full-width styling */}
             <p
               ref={textRef}
-              className="main-heading text-brand-dark select-none w-full max-w-[1300px] font-light leading-snug"
+              className="main-heading text-brand-dark select-none w-full max-w-[1300px]"
             >
               Behind every world-class carpet is a team committed to precision,
               craftsmanship, and uncompromising quality. Meet the people who
@@ -201,7 +201,7 @@ export default function TeamHero() {
             <div className="lg:col-span-4 flex flex-col justify-end items-end">
               <p
                 ref={descTextRef}
-                className="body-text text-brand-grey max-w-[340px] text-right font-light leading-relaxed select-none"
+                className="body-text text-brand-grey max-w-[340px] text-right select-none"
               >
                 At Wilton Weavers, every department works as one, from design and
                 engineering to weaving, quality assurance and customer support. Together,
