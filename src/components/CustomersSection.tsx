@@ -59,12 +59,12 @@ function LogoGrid({ logos, layout }: { logos: LogoItem[]; layout: LayoutCell[][]
           ) : (
             <div
               key={logos[cell].name}
-              className="h-32 md:h-auto md:aspect-square border border-brand-dark/15 flex items-center justify-center p-8 sm:p-12"
+              className="h-[220px] md:h-auto md:aspect-square border border-brand-dark/15 flex items-center justify-center p-8 sm:p-12"
             >
               <img
                 src={logos[cell].src}
                 alt={logos[cell].name}
-                className="max-w-[50%] md:max-w-full max-h-[75px] md:max-h-full object-contain"
+                className="max-w-[75%] md:max-w-full max-h-[175px] md:max-h-full object-contain"
               />
             </div>
           )
