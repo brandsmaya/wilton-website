@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+
 
 export default function AboutHero() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -148,13 +150,13 @@ export default function AboutHero() {
               ref={logoContainerRef}
               className="w-full max-w-[200px] lg:max-w-[520px] h-auto lg:h-[200px] aspect-[646.03/200] relative"
             >
-              <a href="/" className="block w-full h-full cursor-pointer">
+              <Link href="/" className="block w-full h-full cursor-pointer">
                 <img
                   src="/images/wilton-logo.svg"
                   alt="Wilton Weavers Logo"
                   className="w-full h-full object-contain object-left"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Main introductory statement - wide/full-width styling */}

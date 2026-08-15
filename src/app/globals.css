@@ -67,15 +67,15 @@ html.lenis {
 }
 
 .main-heading {
-  font-size: clamp(28px, 4vw, 43px);
-  line-height: 1.1;
+  font-size: clamp(20px, 4vw, 43px);
+  line-height: 1.15;
   font-weight: 400;
   letter-spacing: -.05em;
   font-family: var(--font-sans);
 }
 
 .big-heading {
-  font-size: clamp(38px, 5.5vw, 72px);
+  font-size: clamp(26px, 5.5vw, 72px);
   line-height: 1.1;
   font-weight: 400;
   letter-spacing: -.05em;
@@ -83,7 +83,7 @@ html.lenis {
 }
 
 .sub-heading {
-  font-size: clamp(20px, 2.5vw, 23px);
+  font-size: clamp(15px, 2.5vw, 22px);
   font-weight: 400;
   letter-spacing: -.05em;
   font-family: var(--font-sans);
@@ -120,7 +120,7 @@ html.lenis {
 }
 
 .huge-heading {
-  font-size: clamp(36px, 8vw, 96px) !important;
+  font-size: clamp(24px, 8vw, 96px) !important;
   line-height: 1.1;
   font-weight: 400;
   letter-spacing: -.05em;
@@ -128,7 +128,7 @@ html.lenis {
 }
 
 .watermark-text {
-  font-size: clamp(90px, 15vw, 240px);
+  font-size: clamp(45px, 15vw, 240px);
   font-weight: 400;
   letter-spacing: 0.2em;
   line-height: 1;

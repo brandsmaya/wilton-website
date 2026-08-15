@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,17 +82,17 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`absolute z-50 transition-all duration-500 ${isScrolled
+        className={`absolute z-50 transition-all duration-500 pointer-events-none ${isScrolled
           ? "top-0 left-0 w-full bg-white/80 backdrop-blur-md py-4 border-b border-[#626262]/10 px-6 md:px-[64px]"
           : "top-6 md:top-[24px] left-6 md:left-[64px] right-6 md:right-[64px] w-[calc(100%-48px)] md:w-[calc(100%-128px)] bg-transparent pt-0 pb-8"
           }`}
       >
         <div className="mx-auto flex justify-between items-center">
-          {/* Large Wilton Weavers logo SVG (invisible by default, fades in on scroll) */}
-          <a
+          {/* Large Wilton Weavers logo SVG (invisible by default, fades in on scroll or when menu is open) */}
+          <Link
             href="/"
-            className={`flex flex-col select-none group w-32 sm:w-44 md:w-56 transition-all duration-500 ${isScrolled
-              ? "opacity-100 translate-y-0"
+            className={`flex flex-col select-none group w-32 sm:w-44 md:w-56 transition-all duration-500 ${isScrolled || isOpen
+              ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-4 pointer-events-none"
               }`}
             onClick={() => setIsOpen(false)}
@@ -101,12 +102,12 @@ export default function Navigation() {
               alt="Wilton Weavers Logo"
               className="w-full h-auto object-contain"
             />
-          </a>
+          </Link>
 
           {/* Minimal Hamburger Menu */}
           <button
             onClick={toggleMenu}
-            className="flex items-center gap-4 group cursor-pointer relative z-50 py-2 focus:outline-none"
+            className="flex items-center gap-4 group cursor-pointer relative z-50 py-2 focus:outline-none pointer-events-auto"
             aria-label="Toggle menu"
           >
             {/* Hamburger Lines */}

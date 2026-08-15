@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Link from "next/link";
 
 // Reproduces the logo entrance/exit animation used by the pinned heroes
 // (Hero, AboutHero, TeamHero) for pages that don't have a full-bleed
@@ -38,13 +39,13 @@ export default function PageLogo() {
       ref={logoRef}
       className="w-full max-w-[200px] lg:max-w-[520px] h-auto lg:h-[200px] aspect-[646.03/200] relative"
     >
-      <a href="/" className="block w-full h-full cursor-pointer">
+      <Link href="/" className="block w-full h-full cursor-pointer">
         <img
           src="/images/wilton-logo.svg"
           alt="Wilton Weavers Logo"
           className="w-full h-full object-contain object-left"
         />
-      </a>
+      </Link>
     </div>
   );
 }
