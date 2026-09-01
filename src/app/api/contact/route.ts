@@ -49,8 +49,10 @@ export async function POST(request: Request) {
       },
     });
 
+    const fromAddress = process.env.SMTP_FROM || user;
+
     const mailOptions = {
-      from: `"${name}" <${user}>`, // Avoid spam filters by using the authenticated sender email
+      from: `"${name}" <${fromAddress}>`, // Use verified sender address
       replyTo: email,
       to,
       subject: "Enquiry from Wilton Website",

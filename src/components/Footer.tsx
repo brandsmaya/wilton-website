@@ -196,7 +196,7 @@ export default function Footer() {
               <span className="footer-text-item">Kalavamkodam, Cherthala</span>
               <span className="footer-text-item">Alappuzha-688 524,</span>
               <span className="footer-text-item">Kerala, India</span>
-              <span className="footer-text-item mt-4 block">Phone: 0478 296 4344</span>
+              <span className="footer-text-item mt-4 block">Phone: +91 97786 31189</span>
               <span className="footer-text-item">
                 For sales:{" "}
                 <a
@@ -209,10 +209,10 @@ export default function Footer() {
               <span className="footer-text-item">
                 For customer support:{" "}
                 <a
-                  href="mailto:berly@wilton.in"
+                  href="mailto:customersupport@wilton.in"
                   className="hover:text-brand-dark transition-colors duration-300 font-medium"
                 >
-                  berly@wilton.in
+                  customersupport@wilton.in
                 </a>
               </span>
             </div>

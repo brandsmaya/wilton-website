@@ -35,6 +35,18 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // Framer motion variants for fullscreen overlay
@@ -82,7 +94,7 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`absolute z-50 transition-all duration-500 pointer-events-none ${isScrolled
+        className={`${isOpen || isScrolled ? "fixed" : "absolute"} z-50 transition-all duration-500 pointer-events-none ${isScrolled
           ? "top-0 left-0 w-full bg-white/80 backdrop-blur-md py-4 border-b border-[#626262]/10 px-6 md:px-[64px]"
           : "top-6 md:top-[24px] left-6 md:left-[64px] right-6 md:right-[64px] w-[calc(100%-48px)] md:w-[calc(100%-128px)] bg-transparent pt-0 pb-8"
           }`}
@@ -137,12 +149,12 @@ export default function Navigation() {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="fixed inset-0 bg-white z-40 flex flex-col justify-center items-start px-6 md:px-24"
+            className="fixed inset-0 bg-white z-40 flex flex-col items-start px-6 md:px-24 overflow-y-auto"
           >
             {/* Subtle architectural background detail */}
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[radial-gradient(#626262_1px,transparent_1px)] [background-size:24px_24px]" />
 
-            <div className="max-w-[1200px] w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12 z-10">
+            <div className="max-w-[1200px] w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10 md:gap-12 z-10 pt-28 pb-12 md:py-16 my-auto">
               {/* Menu Links */}
               <motion.div
                 variants={containerVariants}
@@ -185,7 +197,7 @@ export default function Navigation() {
                     <br />
                     Kerala, India
                     <br />
-                    <span className="block mt-2">Phone: 0478 296 4344</span>
+                    <span className="block mt-2">Phone: +91 97786 31189</span>
                   </p>
                 </div>
 
@@ -200,10 +212,10 @@ export default function Navigation() {
                     Sales: ceo@wilton.in
                   </a>
                   <a
-                    href="mailto:berly@wilton.in"
+                    href="mailto:customersupport@wilton.in"
                     className="block hover:text-brand-dark transition-colors duration-300 body-large mt-1"
                   >
-                    Support: berly@wilton.in
+                    Support: customersupport@wilton.in
                   </a>
                 </div>
               </motion.div>
