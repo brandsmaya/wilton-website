@@ -29,6 +29,60 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.defaultMuted = true;
+      video.muted = true;
+
+      const attemptPlay = () => {
+        if (video.paused) {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // iOS low power mode or strict autoplay policy prevented autoplay
+            });
+          }
+        }
+      };
+
+      attemptPlay();
+
+      const handleInteraction = () => {
+        attemptPlay();
+        if (!video.paused) {
+          removeInteractionListeners();
+        }
+      };
+
+      const removeInteractionListeners = () => {
+        window.removeEventListener("touchstart", handleInteraction);
+        window.removeEventListener("touchend", handleInteraction);
+        window.removeEventListener("scroll", handleInteraction);
+        window.removeEventListener("click", handleInteraction);
+        window.removeEventListener("pointerdown", handleInteraction);
+      };
+
+      const handleVisibilityChange = () => {
+        if (document.visibilityState === "visible") {
+          attemptPlay();
+        }
+      };
+
+      window.addEventListener("touchstart", handleInteraction, { passive: true });
+      window.addEventListener("touchend", handleInteraction, { passive: true });
+      window.addEventListener("scroll", handleInteraction, { passive: true });
+      window.addEventListener("click", handleInteraction, { passive: true });
+      window.addEventListener("pointerdown", handleInteraction, { passive: true });
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+
+      return () => {
+        removeInteractionListeners();
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
+      };
+    }
+  }, []);
+
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
@@ -220,13 +274,17 @@ export default function Hero() {
         >
           <video
             ref={videoRef}
-            src="/images/wilton-video.mp4"
             autoPlay
             loop
             muted
             playsInline
+            preload="auto"
+            disablePictureInPicture
+            disableRemotePlayback
             className="absolute inset-0 w-full h-full object-cover"
-          />
+          >
+            <source src="/images/wilton-video.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-[#626262]/25 via-transparent to-transparent pointer-events-none" />
         </div>
       </div>
